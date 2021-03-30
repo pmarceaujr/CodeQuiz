@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./includes/css/resets.css" />
+    <link rel="stylesheet" href="./includes/css/styles.css" />
+    <title>Code Quiz</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p><a href="codegurus.html">See the Gurus</a></p>
+        </div>
+        <div><h1>Coding Guru Level Assessment</h1></div>
+        <div>
+          <p id="timeLeft">Time left:</p>
+          <p id="timer">0:00</p>
+        </div>
+      </header>
+      <hr />
+      <section><button id="startButton">Start</section></div>
+      <section>
+        <div class="leftside"></div>
+        <div class="center-quiz">
+            <div>
+                <h2 id="quizQuesNum">Take the JavaScript Quiz.</h2>
+                <p id="quiz-question" class="questions">
+                    Start the quiz by clicking the start button. </br>This is a timed quiz and each wrong
+                    answer will cost you 10 seconds. Each correct answer will add 10 points to your score and give you 5 extra
+                    seconds.  At the end of the quiz any remaining time will be added to your final score.
+                </p>
+            </div>
+            <div id = "answer-choices" class="answers">
+                <ul class="answer-list">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>
+            <hr class= "hrFooter">
+            <div><h2 id="msgCenter"></h2></div>
+        </div>
+        <div class="center-hiscore">
+            <div>
+                <form>
+                <h2 id="highScoreTitle">Congratulations You Earned A Top Score!</h2>
+                <label class="initials" for="initials">Enter Your Initials:</label>
+                <input type="text" id="initials" name="user-initials" />
+            </div>
+
+            <hr class= "hrHiScore">
+            <div><h2 id="msgHiscore">Your Score:</h2></div>
+            <button id="homeButton">Home</button><button id="submitButton">Submit</button><button id="scoresButton">Scores</button>
+        </form>
+        </div>
+
+        <div class="rightside"></div>
+      </section>
+    </main>
+    <script src="./includes/js/script.js"></script>
+    <script src="./includes/js/questions.js"></script>
+  </body>
+</html>
+
+<!--
+     click start game
+     start timer
+     load question
+     
+
+-->

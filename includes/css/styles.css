@@ -1,0 +1,148 @@
+body {
+  background-color: rgb(171, 172, 235);
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 1 100%;
+}
+
+#timeLeft,
+#timer {
+  display: inline;
+}
+header p,
+header a,
+p {
+  font-size: 2rem;
+  margin: 0px 25px;
+}
+
+form {
+  font-size: 4rem;
+  margin: 0px 25px;
+}
+.hrFooter {
+  width: 100%;
+  height: 3px;
+  visibility: hidden;
+}
+.hrHiScore {
+  width: 90%;
+  height: 3px;
+  visibility: unset;
+  margin: 10px 25px;
+}
+h1 {
+  text-align: center;
+  font-family: "Ubuntu";
+  /*text-shadow: 5px 0 #232931;*/
+  font-size: 4rem;
+  color: dimgray;
+  margin: 0px;
+}
+
+#quizQuesNum,
+#msgCenter,
+#msgHiscore {
+  text-align: center;
+  font-family: "Ubuntu";
+  /*text-shadow: 5px 0 #232931;*/
+  font-size: 3rem;
+  color: dimgray;
+  margin: 0px;
+}
+
+#startButton,
+#submitButton,
+#homeButton,
+#scoresButton {
+  border-radius: 8px;
+  height: 4rem;
+  width: 10rem;
+  font-size: 2rem;
+  margin: 50px auto;
+}
+
+#submitButton,
+#homeButton,
+#scoresButton {
+  margin: 20px 15px;
+}
+#startButton:hover,
+#submitButton:hover,
+#homeButton:hover,
+#scoresButton:hover {
+  background-color: dimgray;
+  color: white;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 100%;
+}
+.leftside,
+.rightside {
+  width: 25%;
+}
+
+.center-quiz {
+  display: unset;
+  width: 50%;
+  text-align: center;
+  border: #811616;
+  height: auto;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 3px;
+}
+.center-hiscore {
+  display: none;
+  width: 50%;
+  text-align: center;
+  border: #811616;
+  height: auto;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 3px;
+}
+.questions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  flex: 0 1 100%;
+  margin: 25px 0px 0px 0px;
+}
+
+ul {
+  display: inline-block;
+  width: auto;
+  margin: 25px 0px 0px 0px;
+}
+
+.answers ul li {
+  font-size: 2rem;
+  /* list-style-type: upper-alpha;*/
+  text-align: left;
+  width: auto;
+  border-radius: 10px;
+  background-color: #1629d8;
+  color: #fff;
+  margin: 10px 0px 10px 10px;
+  padding: 0px 10px;
+}
+
+.answers ul li:hover {
+  background-color: #5b68d6;
+  color: rgb(255, 255, 255);
+  cursor: default;
+}
+/*ol:hover {
+  background-color: #1629d8;
+  color: #fff;
+}*/
