@@ -1,7 +1,8 @@
 body {
-  background-color: rgb(171, 172, 235);
+  background-color: #131585;
 }
 header {
+  color: #c9c7c7;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -13,13 +14,16 @@ header {
 #timer {
   display: inline;
 }
+
 header p,
 header a,
 p {
   font-size: 2rem;
   margin: 0px 25px;
 }
-
+header a {
+  color: #c9c7c7;
+}
 form {
   font-size: 4rem;
   margin: 0px 25px;
@@ -40,7 +44,7 @@ h1 {
   font-family: "Ubuntu";
   /*text-shadow: 5px 0 #232931;*/
   font-size: 4rem;
-  color: dimgray;
+  color: #c9c7c7;
   margin: 0px;
 }
 
@@ -90,11 +94,14 @@ section {
   width: 25%;
 }
 
-.center-quiz {
+.center-quiz,
+.center-hiscore {
   display: unset;
+  background-color: #9aa3f5;
   width: 50%;
   text-align: center;
   border: #811616;
+  box-shadow: 8px 8px 15px #fff, -8px -8px 15px #fff;
   height: auto;
   border-style: solid;
   border-radius: 10px;
@@ -102,19 +109,13 @@ section {
 }
 .center-hiscore {
   display: none;
-  width: 50%;
-  text-align: center;
-  border: #811616;
-  height: auto;
-  border-style: solid;
-  border-radius: 10px;
-  border-width: 3px;
 }
 .questions {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: bold;
   flex: 0 1 100%;
   margin: 25px 0px 0px 0px;
 }
@@ -126,7 +127,8 @@ ul {
 }
 
 .answers ul li {
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: bold;
   /* list-style-type: upper-alpha;*/
   text-align: left;
   width: auto;
