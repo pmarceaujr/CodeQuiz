@@ -2,12 +2,13 @@ body {
   background-color: #131585;
 }
 header {
-  color: #c9c7c7;
+  color: #808080;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex: 0 1 100%;
+  margin: 0px 25px;
 }
 
 #timeLeft,
@@ -22,7 +23,7 @@ p {
   margin: 0px 25px;
 }
 header a {
-  color: #c9c7c7;
+  color: #808080;
 }
 form {
   font-size: 4rem;
@@ -44,10 +45,18 @@ h1 {
   font-family: "Ubuntu";
   /*text-shadow: 5px 0 #232931;*/
   font-size: 4rem;
-  color: #c9c7c7;
+  color: #808080;
   margin: 0px;
 }
-
+h3 {
+  text-align: center;
+  display: inline-block;
+  font-family: "Ubuntu";
+  /*text-shadow: 5px 0 #232931;*/
+  font-size: 3rem;
+  color: #811616;
+  margin: 0px;
+}
 #quizQuesNum,
 #msgCenter,
 #msgHiscore {
@@ -82,7 +91,9 @@ h1 {
   background-color: dimgray;
   color: white;
 }
-
+#homeButton {
+  display: none;
+}
 section {
   display: flex;
   justify-content: center;
@@ -95,7 +106,8 @@ section {
 }
 
 .center-quiz,
-.center-hiscore {
+.center-hiscore,
+.center-scoresList {
   display: unset;
   background-color: #9aa3f5;
   width: 50%;
@@ -107,9 +119,18 @@ section {
   border-radius: 10px;
   border-width: 3px;
 }
-.center-hiscore {
+
+.center-scoresList div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.center-hiscore,
+.center-scoresList {
   display: none;
 }
+
 .questions {
   display: flex;
   justify-content: center;
@@ -144,7 +165,21 @@ ul {
   color: rgb(255, 255, 255);
   cursor: default;
 }
-/*ol:hover {
-  background-color: #1629d8;
-  color: #fff;
-}*/
+footer {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0px 0px 0px;
+}
+
+#highscore-initials ul,
+#highscore-score ul {
+  font-size: 4rem;
+  padding: 10px opx;
+  margin: 10px 0px 10px 10px;
+}
+#scoreContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}

@@ -13,25 +13,38 @@ let highScores = [];        //The array to store the high scores, that will writ
 //The start button will start the quiz
 let startBtn = document.querySelector("#startButton");
 startBtn.addEventListener('click', function () {
-    startBtn.style.visibility = 'hidden'
+    buttonControl()
     startTimer();
     loadQuizQues();
 })
+
+//The home button will reload the page.  hide/Show is controlledwith JS
+let hometBtn = document.querySelector("#homeButton");
 
 //The submit button will submit the high score to be saved to local storage
 let submitBtn = document.querySelector("#submitButton");
 submitBtn.addEventListener('click', function () {
     saveHighScore();
 })
+//The scores button will display the high scores list
+let scoresBtn = document.querySelector("#scoresButton");
+scoresBtn.addEventListener('click', function () {
 
+    showHighScores();
+})
+
+function buttonControl() {
+    //hides/shows buttons based on where in the quiz the user is
+    startBtn.style.visibility = 'hidden'
+    hometBtn.style.display = 'unset'
+}
 function startTimer() {
-    //console.log(`starttimer`)
     timeLeft = 60;
     // Start interval timer
     timerElm = document.querySelector("#timer");
     timerInterval = setInterval(function () {
         if (timeLeft < 10) {
-            timerElm.textContent = `0:0${timeLeft}`;  //pad a zero to single diit seconds
+            timerElm.textContent = `0:0${timeLeft}`;  //pad a zero to single digit seconds
         }
         else {
             timerElm.textContent = `0:${timeLeft}`;
@@ -108,8 +121,9 @@ function gameOver() {
     quizSection.style.display = "none"
     let hiScoreSection = document.querySelector('.center-hiscore');
     hiScoreSection.style.display = "unset"
-    if (gameLost || gameScore < 75) {
-        //You losr you did not complete all the questions before the timer ran out... do some game loser processing here
+    gameScore = gameScore + timeLeft
+    if (gameLost || gameScore < 65) {
+        //You lost you did not complete all the questions before the timer ran out... do some game lost processing here
         let playerInitials = document.querySelector('#initials');
         playerInitials.style.display = "none"
         let playerInitLbl = document.querySelector('.initials');
@@ -117,10 +131,12 @@ function gameOver() {
         submitBtn.style.display = "none"
         let youLostMsg = document.querySelector('#highScoreTitle');
         youLostMsg.textContent = "You Failed The Quiz.  You Should Study More."
+        let hiScoreMsg = document.querySelector('#msgHiscore')
+        hiScoreMsg.textContent = `Your Score: ${gameScore}`
     }
     else {
         //add time to score and do some game winning porcessing here, display Your score
-        gameScore = gameScore + timeLeft
+        //gameScore = gameScore + timeLeft
         let hiScoreMsg = document.querySelector('#msgHiscore')
         hiScoreMsg.textContent = `Your Score: ${gameScore}`
     }
@@ -131,13 +147,54 @@ function saveHighScore() {
     highScores = JSON.parse(localStorage.getItem("highScores"));
     //Get player Initials and save them to playInitHiScr array and then 
     //push to HighScores array to save to localstorage
+    if (!highScores) {
+        localStorage.setItem("highScores", JSON.stringify(""));
+        highScores = [];
+    }
     let playerInitials = document.querySelector('#initials');
+
     let playInitHiScr = [playerInitials.value, gameScore]
     highScores.push(playInitHiScr);
     //Save new score and player initials to local storage 
     localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 
+function showHighScores() {
+    highScores = JSON.parse(localStorage.getItem("highScores"));
+    if (!highScores) {
+        alert("The highscores list is currently empty.  Please take the quiz and save your score to start a High Scores List.");
+    }
+    else {
+        buttonControl()
+        scoresBtn.style.display = 'none'
+        let quizSection = document.querySelector('.center-quiz');
+        quizSection.style.display = "none"
+        let hiScoreSection = document.querySelector('.center-hiscore');
+        hiScoreSection.style.display = "none"
+        let hiScoreList = document.querySelector('.center-scoresList');
+        hiScoreList.style.display = "unset"
+        let highScoresSorted = highScores.sort(function (a, b) {
+            return b[1] - a[1];
+        })
+        let highInitUl = document.querySelector('#highInitUL')
+        let highScoreUl = document.querySelector('#highScoreUL')
+        for (i = 0; i < highScoresSorted.length; i++) {
+
+            //   alert(`name: ${highScoresSorted[i][0]}  score: ${highScoresSorted[i][1]}`)
+            let newNameLi = document.createElement("li");
+            let newScoreLi = document.createElement("li");
+            newNameLi.textContent = highScoresSorted[i][0];
+            //  alert(newNameLi.textContent)
+            newScoreLi.textContent = highScoresSorted[i][1];
+            //   alert(newScoreLi.textContent)
+            //    alert(highInitUl)
+            highInitUl.appendChild(newNameLi);
+            //    alert(highScoreUl)
+            highScoreUl.appendChild(newScoreLi);
+            // alert(`name: ${highScoresSorted[i][0]}  score: ${highScoresSorted[i][1]}`)
+        }
+    }
+}
 
 /*
 //Local storage functions begin here
@@ -155,27 +212,10 @@ function getLocalStorage() {
 }
 
 
-
-let btnRollDice = document.body.querySelector('#rollDice')
-btnRollDice.addEventListener('click', rollDice);
-
-
-// Selects element by class
-var timeEl = document.querySelector(".time");
-
-// Selects element by id
-var mainEl = document.getElementById("main");
-
-function SortLocalStorage(){
-   if(localStorage.length > 0){
-      var localStorageArray = new Array();
-      for (i=0;i<localStorage.length;i++){
-          localStorageArray[i] = localStorage.key(i)+localStorage.getItem(localStorage.key(i));
-      }
-   }
-   var sortedArray = localStorageArray.sort();
-   return sortedArray;
-}
+//WITH FIRST COLUMN
+arr = arr.sort(function(a,b) {
+    return a[0] - b[0];
+});
 
 
 
