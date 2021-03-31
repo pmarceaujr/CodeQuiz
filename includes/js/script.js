@@ -29,14 +29,19 @@ submitBtn.addEventListener('click', function () {
 //The scores button will display the high scores list
 let scoresBtn = document.querySelector("#scoresButton");
 scoresBtn.addEventListener('click', function () {
-
+    clearInterval(timerInterval);
     showHighScores();
 })
-
+//The rest scores button will erase the high scores list
+let resetBtn = document.querySelector("#resetButton");
+resetBtn.addEventListener('click', function () {
+    resetHighScores();
+})
 function buttonControl() {
     //hides/shows buttons based on where in the quiz the user is
     startBtn.style.visibility = 'hidden'
     hometBtn.style.display = 'unset'
+
 }
 function startTimer() {
     timeLeft = 60;
@@ -165,6 +170,7 @@ function showHighScores() {
     }
     else {
         buttonControl()
+        resetBtn.style.display = 'unset'
         scoresBtn.style.display = 'none'
         let quizSection = document.querySelector('.center-quiz');
         quizSection.style.display = "none"
@@ -186,6 +192,13 @@ function showHighScores() {
             highScoreUl.appendChild(newScoreLi);
         }
     }
+
+
+}
+function resetHighScores() {
+    window.localStorage.clear();
+    document.querySelector('#highInitUL').textContent = ""
+    document.querySelector('#highScoreUL').textContent = ""
 }
 
 /*// This function clears the local storage of the high scores as well as clearing the text from the high score board

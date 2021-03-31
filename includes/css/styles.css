@@ -71,27 +71,32 @@ h3 {
 #startButton,
 #submitButton,
 #homeButton,
-#scoresButton {
+#scoresButton,
+#resetButton {
   border-radius: 8px;
   height: 4rem;
-  width: 10rem;
-  font-size: 2rem;
+  width: 13rem;
+  font-size: 1.75rem;
+  font-weight: bold;
   margin: 50px auto;
 }
 
 #submitButton,
 #homeButton,
-#scoresButton {
+#scoresButton,
+#resetButton {
   margin: 20px 15px;
 }
 #startButton:hover,
 #submitButton:hover,
 #homeButton:hover,
-#scoresButton:hover {
+#scoresButton:hover,
+#resetButton:hover {
   background-color: dimgray;
   color: white;
 }
-#homeButton {
+#homeButton,
+#resetButton {
   display: none;
 }
 section {
