@@ -123,7 +123,7 @@ function gameOver() {
     hiScoreSection.style.display = "unset"
     gameScore = gameScore + timeLeft
     if (gameLost || gameScore < 65) {
-        //You lost you did not complete all the questions before the timer ran out... do some game lost processing here
+        //You lost you did not complete all the questions before the timer ran out... or you got a score below 65
         let playerInitials = document.querySelector('#initials');
         playerInitials.style.display = "none"
         let playerInitLbl = document.querySelector('.initials');
@@ -152,7 +152,6 @@ function saveHighScore() {
         highScores = [];
     }
     let playerInitials = document.querySelector('#initials');
-
     let playInitHiScr = [playerInitials.value, gameScore]
     highScores.push(playInitHiScr);
     //Save new score and player initials to local storage 
@@ -179,44 +178,19 @@ function showHighScores() {
         let highInitUl = document.querySelector('#highInitUL')
         let highScoreUl = document.querySelector('#highScoreUL')
         for (i = 0; i < highScoresSorted.length; i++) {
-
-            //   alert(`name: ${highScoresSorted[i][0]}  score: ${highScoresSorted[i][1]}`)
             let newNameLi = document.createElement("li");
             let newScoreLi = document.createElement("li");
             newNameLi.textContent = highScoresSorted[i][0];
-            //  alert(newNameLi.textContent)
             newScoreLi.textContent = highScoresSorted[i][1];
-            //   alert(newScoreLi.textContent)
-            //    alert(highInitUl)
             highInitUl.appendChild(newNameLi);
-            //    alert(highScoreUl)
             highScoreUl.appendChild(newScoreLi);
-            // alert(`name: ${highScoresSorted[i][0]}  score: ${highScoresSorted[i][1]}`)
         }
     }
 }
 
-/*
-//Local storage functions begin here
-function getLocalStorage() {
-    if (localStorage.getItem('myKey'){
-        //Data item exists
-    } else {
-        //Data item doesn't exist,
-    }
-    if (localStorage.length > 0) {
-        //Items are stored in local storage
-    } else {
-        //Local storage is empty
-    }
-}
-
-
-//WITH FIRST COLUMN
-arr = arr.sort(function(a,b) {
-    return a[0] - b[0];
-});
-
-
-
-*/
+/*// This function clears the local storage of the high scores as well as clearing the text from the high score board
+function clearScore(){
+    window.localStorage.clear();
+    highscoreDisplayName.textContent = "";
+    highscoreDisplayScore.textContent = "";
+}*/
