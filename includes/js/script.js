@@ -20,11 +20,16 @@ startBtn.addEventListener('click', function () {
 
 //The home button will reload the page.  hide/Show is controlledwith JS
 let hometBtn = document.querySelector("#homeButton");
+hometBtn.addEventListener('click', function () {
+    window.location.reload();
+})
 
 //The submit button will submit the high score to be saved to local storage
 let submitBtn = document.querySelector("#submitButton");
-submitBtn.addEventListener('click', function () {
+submitBtn.addEventListener('click', function (event) {
+    event.preventDefault();
     saveHighScore();
+    submitBtn.disabled = 'true';
 })
 //The scores button will display the high scores list
 let scoresBtn = document.querySelector("#scoresButton");
@@ -111,7 +116,6 @@ function answerClicked(event) {
             msgCenter.textContent = "WRONG: You get 0 points and loose 10 seconds."
             let msgFooter = document.querySelector('.hrFooter');
             msgFooter.style.visibility = "visible"
-            //alert("no")
         }
 
         //Increase the quesNUm so next time through it will load the next question from the array
@@ -147,7 +151,7 @@ function gameOver() {
     }
 }
 
-function saveHighScore() {
+function saveHighScore(event) {
     //Get the Highscores from localstorage and save them in the highScores array
     highScores = JSON.parse(localStorage.getItem("highScores"));
     //Get player Initials and save them to playInitHiScr array and then 
@@ -196,7 +200,7 @@ function showHighScores() {
 
 }
 function resetHighScores() {
-    window.localStorage.clear();
+    window.localStorage.removeItem('highScores');
     document.querySelector('#highInitUL').textContent = ""
     document.querySelector('#highScoreUL').textContent = ""
 }
