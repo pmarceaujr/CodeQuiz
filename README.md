@@ -9,4 +9,4 @@ Here we have a simple code quiz. To begin the quiz, you click the start button, 
 
 LINK: https://pmarceaujr.github.io/CodeQuiz/
 
-SCREENSHOT:![Screenshot](./images/codequiz1.png)
+SCREENSHOT:![Screenshot](./images/codequiz.png)
